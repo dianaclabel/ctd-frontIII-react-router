@@ -16,15 +16,17 @@ const Home = () => {
     getBeers();
   }, []);
 
-  console.log(beers.length);
-
   return (
     <Layout>
       <div className="grid">
         {beers.length
-          ? beers.map((beer, index) => (
-              <Link to={`/beer/${index + 1}`}>
-                <Card key={beer._id} data={beer} />
+          ? beers.map((beer, i) => (
+              <Link
+                key={beer._id}
+                to={`/beer/${beer._id}`}
+                state={{ n: i + 1 }}
+              >
+                <Card data={beer} />
               </Link>
             ))
           : null}
