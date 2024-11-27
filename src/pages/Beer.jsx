@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import Layout from "../components/Layout";
 
 //Esta pagina renderizará cada bebida de manera individual
 
@@ -20,21 +21,29 @@ const Beer = () => {
     getBeer();
   }, []);
 
+  const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate("/");
+  };
+
   console.log(state);
 
   return (
-    <div>
-      <h2>Cerveza numero {state?.n}</h2>
-      {beer && (
-        <div className="card">
-          <img src={beer.image_url} alt="beer-detail" />
-          <p>{beer.tagline}</p>
-          <p>{beer.description}</p>
-          <p>{beer.brewers_tips} </p>
-        </div>
-      )}
-      <button>Go back</button>
-    </div>
+    <Layout>
+      <div>
+        <h2>Cerveza numero {state?.n}</h2>
+        {beer && (
+          <div className="card">
+            <img src={beer.image_url} alt="beer-detail" />
+            <p>{beer.tagline}</p>
+            <p>{beer.description}</p>
+            <p>{beer.brewers_tips} </p>
+          </div>
+        )}
+        <button onClick={goToHome}>Go back</button>
+      </div>
+    </Layout>
   );
 };
 

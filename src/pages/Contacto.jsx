@@ -1,16 +1,25 @@
-import React from 'react'
+import React from "react";
+import Layout from "../components/Layout";
+import styles from "./css/contacto.module.css";
 
 const Contacto = () => {
   return (
-    <div className='grid'>
-        <h2>¿Queres saber mas de nosotros?</h2>
-        <h2>¿Sos revendedo y queres conocer precios mayoristas?</h2>
-        <p>No dudes en contactarnos
-          <code>Email: punkapi@beers.com</code>
-          <code>Telefono: 11324568</code>
+    <Layout>
+      <div className={styles.boxContacto}>
+        <h2 className={styles.title}>¿Queres saber mas de nosotros?</h2>
+        <h2 className={styles.title}>
+          ¿Sos revendedo y queres conocer precios mayoristas?
+        </h2>
+        <p className={styles.text}>No dudes en contactarnos</p>
+        <p className={styles.text}>
+          <span>Email:</span> punkapi@beers.com
         </p>
-    </div>
-  )
-}
+        <p className={styles.text}>
+          <span>Telefono:</span> 11324568
+        </p>
+      </div>
+    </Layout>
+  );
+};
 
-export default Contacto
+export default Contacto;
